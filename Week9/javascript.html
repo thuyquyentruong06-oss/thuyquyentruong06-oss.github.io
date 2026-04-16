@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập JavaScript - Tính tổng</title>
+</head>
+<body>
+
+    <h2>Chương trình tính tổng hai số</h2>
+
+    <script>
+        // 1. Sử dụng prompt để nhận dữ liệu từ người dùng
+        let input1 = prompt("Nhập số thứ nhất:");
+        let input2 = prompt("Nhập số thứ hai:");
+
+        // 2. Chuyển đổi kiểu dữ liệu sang số thực (Float)
+        let num1 = parseFloat(input1);
+        let num2 = parseFloat(input2);
+
+        // 3. Kiểm tra định dạng (Sử dụng isNaN để kiểm tra xem có phải là số hợp lệ không)
+        // Hoặc kiểm tra xem người dùng có nhấn Cancel (null) hay không
+        if (isNaN(num1) || isNaN(num2)) {
+            // Hiển thị thông báo lỗi nếu định dạng sai
+            alert("Lỗi: Bạn đã nhập sai định dạng số. Vui lòng tải lại trang và nhập số hợp lệ.");
+        } else {
+            // 4. Tính tổng và hiển thị kết quả
+            let sum = num1 + num2;
+            alert("Tổng của hai số " + num1 + " và " + num2 + " là: " + sum);
+        }
+    </script>
+
+</body>
+</html>
