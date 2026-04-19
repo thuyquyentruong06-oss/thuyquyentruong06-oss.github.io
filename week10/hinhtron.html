@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tính Hình Tròn</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2>Tính Chu vi & Diện tích Hình tròn</h2>
+    Bán kính: <input type="number" id="radius"><br><br>
+    <button onclick="calcCircle()">Tính toán</button>
+    
+    <p id="circleResult"></p>
+
+    <script>
+        function calcCircle() {
+            let r = parseFloat(document.getElementById('radius').value);
+            const PI = 3.14;
+            if (isNaN(r)) {
+                document.getElementById('circleResult').innerHTML = "Vui lòng nhập bán kính!";
+                return;
+            }
+            let p = 2 * PI * r;
+            let a = PI * r * r;
+            document.getElementById('circleResult').innerHTML = `Chu vi: ${p.toFixed(2)} | Diện tích: ${a.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

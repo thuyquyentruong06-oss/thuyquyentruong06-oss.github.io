@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tính Hình Chữ Nhật</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h2>Tính Chu vi & Diện tích Hình chữ nhật</h2>
+    Chiều dài: <input type="number" id="length"><br><br>
+    Chiều rộng: <input type="number" id="width"><br><br>
+    <button onclick="calcRect()">Tính toán</button>
+    
+    <p id="rectResult"></p>
+
+    <script>
+        function calcRect() {
+            let l = parseFloat(document.getElementById('length').value);
+            let w = parseFloat(document.getElementById('width').value);
+            if (isNaN(l) || isNaN(w)) {
+                document.getElementById('rectResult').innerHTML = "Vui lòng nhập số hợp lệ!";
+                return;
+            }
+            let p = (l + w) * 2;
+            let a = l * w;
+            document.getElementById('rectResult').innerHTML = `Chu vi: ${p} | Diện tích: ${a}`;
+        }
+    </script>
+</body>
+</html>

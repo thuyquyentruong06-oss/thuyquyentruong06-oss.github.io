@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dates in month</title>
+    <style>
+        .container { border: 1px solid #ccc; padding: 20px; width: 300px; }
+        .row { margin-bottom: 10px; display: flex; justify-content: space-between; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>DATES IN MONTH</h3>
+    <div class="row">
+        Year: <input type="text" id="year" onchange="calculateDays()">
+    </div>
+    <div class="row">
+        Month: 
+        <select id="month" onchange="calculateDays()">
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
+    </div>
+    <div class="row">
+        Date: <input type="text" id="result" readonly>
+    </div>
+</div>
+
+<script>
+    // Hàm kiểm tra năm nhuận (như trong hình)
+    function isLeapYear(n) {
+        return (n % 4 == 0 && n % 100 != 0) || (n % 400 == 0);
+    }
+
+    function calculateDays() {
+        let yearVal = document.getElementById('year').value;
+        let month = parseInt(document.getElementById('month').value);
+        let resultField = document.getElementById('result');
+
+        // Kiểm tra nếu năm không phải là số
+        if (isNaN(yearVal) || yearVal.trim() === "") {
+            resultField.value = "Year must a number";
+            return;
+        }
+
+        let year = parseInt(yearVal);
+        let days;
+
+        // Sử dụng switch statement theo yêu cầu
+        switch (month) {
+            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+                days = 31;
+                break;
+            case 4: case 6: case 9: case 11:
+                days = 30;
+                break;
+            case 2:
+                days = isLeapYear(year) ? 29 : 28;
+                break;
+            default:
+                days = "Invalid month";
+        }
+
+        resultField.value = days;
+    }
+</script>
+
+</body>
+</html>
