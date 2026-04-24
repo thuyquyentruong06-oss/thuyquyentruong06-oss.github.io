@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 60px;
+            height: 22px;
+            font-size: 16px;
+        }
+
+        .box {
+            width: 260px;
+            min-height: 230px;
+            border: 2px solid #ddd;
+            margin: 10px auto;
+            text-align: left;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <p style="text-align:right; margin-right: 330px;">Web Design and Development</p>
+
+    <h1>MULTIPLICATION TABLE</h1>
+
+    <label>Which multiplication table that you want to display?</label>
+    <input type="text" id="number" onkeyup="showTable()">
+
+    <div class="box" id="result"></div>
+
+    <script>
+        function showTable() {
+            let value = document.getElementById("number").value;
+            let result = document.getElementById("result");
+
+            if (value === "") {
+                result.innerHTML = "";
+                return;
+            }
+
+            if (isNaN(value)) {
+                result.innerHTML = "<p class='error'>You must enter a number</p>";
+                return;
+            }
+
+            let number = Number(value);
+            let output = "<b>Multiplication table " + number + ":</b><br>";
+
+            for (let i = 1; i <= 10; i++) {
+                output += number + " x " + i + " = " + (number * i) + "<br>";
+            }
+
+            result.innerHTML = output;
+        }
+    </script>
+
+</body>
+</html>

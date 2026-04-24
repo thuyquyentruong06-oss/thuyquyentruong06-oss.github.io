@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+
+    <style>
+        body {
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .calculator {
+            width: 500px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .row {
+            margin: 15px 0;
+            font-size: 22px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+        }
+
+        input, select {
+            width: 200px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        button {
+            margin-left: 125px;
+            padding: 8px 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <p style="text-align:right; margin-right:250px;">
+        Web Design and Development
+    </p>
+
+    <h1>MINI CALCULATOR</h1>
+
+    <div class="calculator">
+        <div class="row">
+            <label>a =</label>
+            <input type="text" id="a">
+        </div>
+
+        <div class="row">
+            <label>b =</label>
+            <input type="text" id="b">
+        </div>
+
+        <div class="row">
+            <label>Operator:</label>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <label>Result:</label>
+            <input type="text" id="result" readonly>
+        </div>
+
+        <button onclick="calculate()">Calculate</button>
+    </div>
+
+    <script>
+        function calculate() {
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            let op = document.getElementById("operator").value;
+            let result = document.getElementById("result");
+
+            // kiểm tra a là số
+            if (isNaN(a) || a === "") {
+                alert("a must be a number!");
+                return;
+            }
+
+            // kiểm tra b là số
+            if (isNaN(b) || b === "") {
+                alert("b must be a number!");
+                return;
+            }
+
+            a = Number(a);
+            b = Number(b);
+
+            // kiểm tra chia cho 0
+            if (op === "/" && b === 0) {
+                alert("b can't be 0!");
+                return;
+            }
+
+            let kq;
+
+            switch (op) {
+                case "+":
+                    kq = a + b;
+                    break;
+                case "-":
+                    kq = a - b;
+                    break;
+                case "*":
+                    kq = a * b;
+                    break;
+                case "/":
+                    kq = a / b;
+                    break;
+            }
+
+            result.value = kq;
+        }
+    </script>
+
+</body>
+</html>
