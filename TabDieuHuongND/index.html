@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab điều hướng nội dung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Website giới thiệu</h1>
+        <p class="subtitle">Ví dụ tạo tab điều hướng bằng HTML, CSS và JavaScript &copy; 2026 &trade;</p>
+
+        <div class="tab-menu">
+            <button class="tab-button active" onclick="openTab(event, 'gioithieu')">Giới thiệu</button>
+            <button class="tab-button" onclick="openTab(event, 'dichvu')">Dịch vụ</button>
+            <button class="tab-button" onclick="openTab(event, 'lienhe')">Liên hệ</button>
+        </div>
+
+        <div id="gioithieu" class="tab-content active-content">
+            <h2>Giới thiệu</h2>
+            <p>
+                Đây là phần giới thiệu về website. Trang web được xây dựng nhằm cung cấp
+                thông tin cơ bản cho người dùng thông qua giao diện đơn giản, dễ sử dụng.
+            </p>
+
+            <ul>
+                <li>Giao diện thân thiện</li>
+                <li>Dễ dàng sử dụng</li>
+                <li>Phù hợp với nhiều thiết bị</li>
+            </ul>
+        </div>
+
+        <div id="dichvu" class="tab-content">
+            <h2>Dịch vụ</h2>
+            <p>
+                Chúng tôi cung cấp nhiều dịch vụ khác nhau nhằm hỗ trợ khách hàng trong quá trình
+                học tập, làm việc và phát triển website cá nhân.
+            </p>
+
+            <ul>
+                <li>Thiết kế website</li>
+                <li>Tư vấn giao diện người dùng</li>
+                <li>Hỗ trợ lập trình HTML, CSS, JavaScript</li>
+            </ul>
+        </div>
+
+        <div id="lienhe" class="tab-content">
+            <h2>Liên hệ</h2>
+            <p>
+                Nếu cần thêm thông tin, bạn có thể liên hệ với chúng tôi thông qua email,
+                số điện thoại hoặc địa chỉ văn phòng.
+            </p>
+
+            <ul>
+                <li>Email: contact@example.com</li>
+                <li>Số điện thoại: 0123 456 789</li>
+                <li>Địa chỉ: Hà Nội, Việt Nam</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

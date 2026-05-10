@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biểu mẫu đăng ký khóa học</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Đăng ký khóa học</h1>
+        <p class="subtitle">Vui lòng nhập đầy đủ thông tin bên dưới</p>
+
+        <form id="courseForm" onsubmit="return validateForm()">
+
+            <div class="form-group">
+                <label for="fullname">Họ tên</label>
+                <input type="text" id="fullname" placeholder="Nhập họ tên của bạn">
+                <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Nhập email của bạn">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Khóa học</label>
+                <select id="course">
+                    <option value="">-- Chọn khóa học --</option>
+                    <option value="HTML CSS">HTML & CSS cơ bản</option>
+                    <option value="JavaScript">JavaScript cơ bản</option>
+                    <option value="Web Design">Thiết kế Web</option>
+                    <option value="ReactJS">ReactJS</option>
+                </select>
+                <span class="error" id="courseError"></span>
+            </div>
+
+            <div class="form-group">
+                <label>Thời gian học</label>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="time" value="Sáng">
+                        Sáng
+                    </label>
+
+                    <label>
+                        <input type="radio" name="time" value="Chiều">
+                        Chiều
+                    </label>
+
+                    <label>
+                        <input type="radio" name="time" value="Tối">
+                        Tối
+                    </label>
+                </div>
+
+                <span class="error" id="timeError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="request">Yêu cầu đặc biệt</label>
+                <textarea id="request" rows="5" placeholder="Nhập yêu cầu đặc biệt nếu có..."></textarea>
+            </div>
+
+            <button type="submit">Đăng ký</button>
+
+            <p id="successMessage"></p>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

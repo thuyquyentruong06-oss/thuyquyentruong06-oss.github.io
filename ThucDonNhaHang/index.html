@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Restaurant Menu</h1>
+        <p class="subtitle">Fresh food, tasty meals and special drinks</p>
+
+        <button onclick="filterMenu()">Filter Menu</button>
+
+        <p id="filterStatus">Showing: All items</p>
+
+        <div class="menu-section">
+            <h2>Appetizers &reg;</h2>
+
+            <div class="menu-item vegetarian">
+                <span>Vegetable Spring Rolls</span>
+                <span>&ge; $5</span>
+            </div>
+
+            <div class="menu-item">
+                <span>Chicken Wings</span>
+                <span>&ge; $7</span>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Main Course &sect;</h2>
+
+            <div class="menu-item">
+                <span>Grilled Beef Steak</span>
+                <span>&ge; $18</span>
+            </div>
+
+            <div class="menu-item vegetarian">
+                <span>Vegetarian Pasta</span>
+                <span>&ge; $12</span>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Desserts</h2>
+
+            <div class="menu-item vegetarian">
+                <span>Chocolate Cake</span>
+                <span>&ge; $6</span>
+            </div>
+
+            <div class="menu-item vegetarian">
+                <span>Fruit Salad</span>
+                <span>&ge; $5</span>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Drinks</h2>
+
+            <div class="menu-item vegetarian">
+                <span>Orange Juice</span>
+                <span>&ge; $4</span>
+            </div>
+
+            <div class="menu-item">
+                <span>Milk Coffee</span>
+                <span>&ge; $5</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

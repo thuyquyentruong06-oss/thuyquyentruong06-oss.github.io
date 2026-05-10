@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Grade Calculator &reg;</h1>
+        <p>Grade report section &sect; 1 - Passing grade is &ge; 50</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Subject</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mathematics</td>
+                    <td class="grade">85</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>English</td>
+                    <td class="grade">78</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Computer Science</td>
+                    <td class="grade">92</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Physics</td>
+                    <td class="grade">88</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button onclick="calculateAverage()">Calculate Average</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
