@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        /* Apply CSS Grid layout */
+        .grid-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            display: grid;
+            gap: 20px; /* Space between rows */
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns for options */
+            gap: 10px;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-msg {
+            color: #dc3545;
+            font-size: 13px;
+            display: none;
+        }
+
+        .success-msg {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="newsletterForm" class="grid-form" onsubmit="return validateForm(event)">
+        <h2 style="margin: 0; text-align: center;">Newsletter Subscription</h2>
+        
+        <div class="success-msg" id="successMsg">
+            Subscription successful! Thank you.
+        </div>
+
+        <div class="form-group">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="example@domain.com" required>
+            <span class="error-msg" id="emailError">Please enter a valid email with '@' and domain.</span>
+        </div>
+
+        <div class="form-group">
+            <label>Subscription Type:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="subType" value="Monthly" checked> Monthly</label>
+                <label><input type="radio" name="subType" value="Yearly"> Yearly</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Interests:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="interest" value="Tech"> Technology</label>
+                <label><input type="checkbox" name="interest" value="Business"> Business</label>
+                <label><input type="checkbox" name="interest" value="Design"> Design</label>
+                <label><input type="checkbox" name="interest" value="Marketing"> Marketing</label>
+            </div>
+            <span class="error-msg" id="interestError">Please select at least one interest.</span>
+        </div>
+
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Stop form from triggering page refresh
+
+            let isValid = true;
+
+            // Element references
+            const emailInput = document.getElementById("email").value.trim();
+            const emailError = document.getElementById("emailError");
+            const interestCheckboxes = document.querySelectorAll('input[name="interest"]:checked');
+            const interestError = document.getElementById("interestError");
+            const successMsg = document.getElementById("successMsg");
+
+            // Reset error messages and success message before re-evaluating
+            emailError.style.display = "none";
+            interestError.style.display = "none";
+            successMsg.style.display = "none";
+
+            // 1. Validate Email (Must contain an '@' and a domain, e.g. .com)
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(emailInput)) {
+                emailError.style.display = "block";
+                isValid = false;
+            }
+
+            // 2. Validate Checkboxes (At least 1 must be checked)
+            if (interestCheckboxes.length === 0) {
+                interestError.style.display = "block";
+                isValid = false;
+            }
+
+            // 3. Display Success Message if Valid
+            if (isValid) {
+                successMsg.style.display = "block";
+                
+                // Optional: You can clear the form here if you want
+                // document.getElementById("newsletterForm").reset();
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>

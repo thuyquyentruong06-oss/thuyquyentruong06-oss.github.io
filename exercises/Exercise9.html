@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Showcase</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f5;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        button:hover {
+            background-color: #217dbb;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #e67e22;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        @media (max-width: 850px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Product Showcase &reg;</h1>
+        <p class="subtitle">Explore our latest products &rightarrow;</p>
+
+        <button onclick="togglePrice()">Toggle Price</button>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <h2>Wireless Mouse &reg;</h2>
+                <p class="price">&euro; 25</p>
+                <p class="description">
+                    A comfortable wireless mouse with smooth control and long battery life.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h2>Mechanical Keyboard</h2>
+                <p class="price">&euro; 75</p>
+                <p class="description">
+                    A durable keyboard with fast response keys for work and gaming.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h2>Gaming Headset</h2>
+                <p class="price">&euro; 45</p>
+                <p class="description">
+                    High-quality sound headset with microphone for clear communication.
+                </p>
+            </div>
+
+            <div class="product-card">
+                <h2>USB-C Hub</h2>
+                <p class="price">&euro; 30</p>
+                <p class="description">
+                    A compact hub that expands your laptop ports for easier connection.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        var pricesHidden = false;
+
+        function togglePrice() {
+            var prices = document.getElementsByClassName("price");
+
+            pricesHidden = !pricesHidden;
+
+            for (var i = 0; i < prices.length; i++) {
+                if (pricesHidden) {
+                    prices[i].style.display = "none";
+                } else {
+                    prices[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

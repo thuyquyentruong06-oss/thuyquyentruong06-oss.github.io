@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Content Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            color: #333;
+        }
+
+        .tabs-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .tab-btn:hover {
+            color: #007bff;
+        }
+
+        .tab-btn.active {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+            margin-bottom: -2px; /* Overlaps container border for seamless look */
+        }
+
+        /* Arrow is hidden by default and shown only on active tab */
+        .tab-btn .arrow {
+            display: none;
+            margin-left: 5px;
+        }
+
+        .tab-btn.active .arrow {
+            display: inline;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px 20px;
+            background-color: #fcfcfc;
+            border: 1px solid #eee;
+            border-top: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('features', this)">Features &reg; <span class="arrow">&rarr;</span></button>
+            <button class="tab-btn" onclick="switchTab('pricing', this)">Pricing &euro; <span class="arrow">&rarr;</span></button>
+            <button class="tab-btn" onclick="switchTab('reviews', this)">Reviews <span class="arrow">&rarr;</span></button>
+            <button class="tab-btn" onclick="switchTab('support', this)">Support <span class="arrow">&rarr;</span></button>
+        </div>
+
+        <div id="features" class="tab-content active">
+            <h2>Features</h2>
+            <p>Explore all the great features our platform has to offer to streamline your workflow.</p>
+        </div>
+
+        <div id="pricing" class="tab-content">
+            <h2>Pricing</h2>
+            <p>Check out our flexible and affordable pricing plans tailored to your needs.</p>
+        </div>
+
+        <div id="reviews" class="tab-content">
+            <h2>Reviews</h2>
+            <p>Read testimonials and discover what our happy customers are saying about us.</p>
+        </div>
+
+        <div id="support" class="tab-content">
+            <h2>Support</h2>
+            <p>Need help? Contact our dedicated support team 24/7 for prompt assistance.</p>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId, element) {
+            // 1. Remove 'active' class from all tab buttons
+            var buttons = document.querySelectorAll('.tab-btn');
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            // 2. Remove 'active' class from all tab contents
+            var contents = document.querySelectorAll('.tab-content');
+            for (var j = 0; j < contents.length; j++) {
+                contents[j].classList.remove('active');
+            }
+
+            // 3. Add 'active' class to the clicked button and corresponding content
+            element.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

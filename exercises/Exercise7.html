@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        .contact-form h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .error-msg {
+            color: #dc3545;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .success-msg {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+            font-weight: bold;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="contactForm" class="contact-form" onsubmit="return validateForm(event)">
+        <h2>Contact Us</h2>
+        
+        <div class="success-msg" id="successMsg">
+            Your message has been sent successfully!
+        </div>
+
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name">
+            <div class="error-msg" id="nameError">Name is required.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email">
+            <div class="error-msg" id="emailError">Email is required.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Enter your message"></textarea>
+            <div class="error-msg" id="messageError">Message is required.</div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Stop form from triggering page refresh
+
+            let isValid = true;
+
+            // Get trimmed input values
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            // Get error message elements
+            const nameError = document.getElementById("nameError");
+            const emailError = document.getElementById("emailError");
+            const messageError = document.getElementById("messageError");
+            const successMsg = document.getElementById("successMsg");
+
+            // Reset all error and success messages
+            nameError.style.display = "none";
+            emailError.style.display = "none";
+            messageError.style.display = "none";
+            successMsg.style.display = "none";
+
+            // Validation logic for empty fields
+            if (name === "") {
+                nameError.style.display = "block";
+                isValid = false;
+            }
+
+            if (email === "") {
+                emailError.style.display = "block";
+                isValid = false;
+            }
+
+            if (message === "") {
+                messageError.style.display = "block";
+                isValid = false;
+            }
+
+            // If validation passes, display success message and reset the form
+            if (isValid) {
+                successMsg.style.display = "block";
+                document.getElementById("contactForm").reset();
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>
